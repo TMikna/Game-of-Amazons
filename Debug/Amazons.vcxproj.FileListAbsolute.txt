@@ -1,2 +1,2 @@
-C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Debug\Amazons.exe
-C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Debug\Amazons.pdb
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\Debug\Amazons.exe
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\Debug\Amazons.pdb
