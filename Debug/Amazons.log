@@ -1,2 +1,67 @@
-﻿  Main.cpp
-  Amazons.vcxproj -> C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Debug\Amazons.exe
+﻿  UI.cpp
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(48,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(48,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(78,68): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(78,56): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(83,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(84,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(88,69): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              T=int
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(88,40): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              T=int
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(103,60): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(103,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(126,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(126,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(150,76): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(150,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(92): warning C4715: 'UI::pickAmazon': not all control paths return a value
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(122): warning C4715: 'UI::dropAmazon': not all control paths return a value
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(146): warning C4715: 'UI::chooseArrowPlace': not all control paths return a value
+  Amazons.vcxproj -> C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\Debug\Amazons.exe
