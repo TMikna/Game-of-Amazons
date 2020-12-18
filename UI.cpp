@@ -97,17 +97,15 @@ Vector2i UI::dropAmazon()
 	while (window.isOpen())  // at least better than while(true)
 	{
 		Vector2i mousePos = Mouse::getPosition(window);
-		while (!window.pollEvent(e))
+		while (!window.pollEvent(e))  // exting when event occurs
 		{
+			// Allow dragging - an amazon follows the mouse
 			mousePos = Mouse::getPosition(window);
 			sQueens[n].setPosition(mousePos.x - delta.x, mousePos.y - delta.y);
 			display();
 			// Little sleep to reduce CPU load
 			std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		}
-
-		//mousePos = Mouse::getPosition(window);
-		//sQueens[n].setPosition(mousePos.x, mousePos.y);
 
 		if (e.type == Event::Closed)
 			window.close();

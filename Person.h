@@ -13,7 +13,6 @@ public:
 	}
 	//Virtual function
 	virtual void moveAmazon();
-
 	virtual void shootArrow();
 
 private:

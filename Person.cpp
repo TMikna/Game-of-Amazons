@@ -5,14 +5,13 @@ void Person::moveAmazon() {
 
 	while (!isMoveAllowed)
 	{
-		//check if valid amazon (kinda done by UI according to sprites places)
 		do
-			oldPos = ui->pickAmazon();
-		while (board->getPlayer(oldPos) != teamColor);
-		//std::cout << oldPos.x;
+			oldPos = ui->pickAmazon();                 // assume that UI picked existing amazon (supposed to be, othervise there is a problem with UI or board)
+		while (board->getPlayer(oldPos) != teamColor); // doesn't go through if trying to move oponent amazon
 
 		newPos = ui->dropAmazon();
 
+		// cancel if it was not allowd move
 		if (!(isMoveAllowed = board->isMoveAllowed(oldPos, newPos)))
 			ui->setAmazonPosition(oldPos);
 	}

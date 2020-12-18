@@ -22,10 +22,6 @@ public:
 	void setAmazonPosition(Vector2i mousePos);
 	void placeArrow(Vector2i arrowPos);
 
-
-
-
-
 private:
 
 	Vector2i delta; // diffetence between the edge of a square and mouse place on a square (for dragging amazon by any place, not a corner)
