@@ -1,12 +1,86 @@
 #include "Board.h"
 #include <iostream>
 
-
     
 Board::Board()
 {
     //window.create(VideoMode(600, 600), "TheChess!");
 }
+
+std::vector<AmazonMove> Board::findAllMoves(int teamColor)
+{
+	std::vector<AmazonMove> moves;
+
+	for (int i = 0; i < c::BOARD_SIZE; i++)
+		for (int j = 0; j < c::BOARD_SIZE; j++)
+			if (board[i][j] == teamColor)
+			{
+				findAllMovesFrom(Vector2i(i, j), &moves);
+			}
+
+	return moves;
+}
+
+// find all possible moves from a position
+std::vector<AmazonMove>* Board::findAllMovesFrom(Vector2i pos, std::vector<AmazonMove> *moves)
+{
+	if (!moves)
+		moves = new std::vector<AmazonMove>;
+
+	int k;
+	int l;
+
+	// go down;
+	k = pos.x;
+	l = pos.y;
+	while (++k < c::BOARD_SIZE && !board[k][l])
+		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+
+	// go up;
+	k = pos.x;
+	l = pos.y;
+	while (k-- > 0 && !board[k][l]) //while not 0 (aka not false)
+		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+
+	// go right;
+	k = pos.x;
+	l = pos.y;
+	while (++l < c::BOARD_SIZE && !board[k][l])
+		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+
+	// go left;
+	k = pos.x;
+	l = pos.y;
+	while (l-- > 0 && !board[k][l])
+		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+
+	// go down rigth;
+	k = pos.x;
+	l = pos.y;
+	while (++k < c::BOARD_SIZE && ++l < c::BOARD_SIZE && !board[k][l])
+		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+
+	// go down left;
+	k = pos.x;
+	l = pos.y;
+	while (++k < c::BOARD_SIZE && l-- > 0 && !board[k][l])
+		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+
+	// go up rigth;
+	k = pos.x;
+	l = pos.y;
+	while (k++ > 0 && ++l < c::BOARD_SIZE && !board[k][l])
+		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+
+	// go up left;
+	k = pos.x;
+	l = pos.y;
+	while (k++ > 0 && l-- > 0 && !board[k][l])
+		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+
+	return moves;
+}
+
 int** Board::getAmazons()
 {
 	int** amazons = 0;
@@ -20,6 +94,21 @@ int** Board::getAmazons()
 				amazons[count] = new int[] {board[i][j], i, j}; // amazon type and it's position
 				count++;
 			}
+	return amazons;
+}
+
+int** Board::getAmazons(int teamColor)
+{
+	int** amazons = 0;
+	amazons = new int* [c::AMAZONS/2]; //one player has 4 or half of the amazons on the board
+	int count = 0;
+	for (int i = 0; i < c::BOARD_SIZE * c::BOARD_SIZE; i++)
+		if (board[i / c::BOARD_SIZE][i % c::BOARD_SIZE] == teamColor)
+		{
+			// it should be 4 amazons (ar half of what c::AMAZONS defines) so array gets filled and not overfilled
+			amazons[count] = new int[] {i / c::BOARD_SIZE, i % c::BOARD_SIZE}; // amazon position (caller knows the type (teamColor)
+			count++;
+		}
 	return amazons;
 }
 
@@ -74,6 +163,8 @@ void Board::moveAmazon(Vector2i oldPos, Vector2i newPos)
 	board[newPos.x][newPos.y] = board[oldPos.x][oldPos.y]; // move amazon
 	board[oldPos.x][oldPos.y] = 0; // empty old place
 }
+
+
 
 
 

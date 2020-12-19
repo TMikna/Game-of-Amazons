@@ -26,7 +26,7 @@ void Person::shootArrow()
 	while (!isAllowed)
 	{
 		arrowPos = ui->chooseArrowPlace();
-		isAllowed = board->isMoveAllowed(newPos, arrowPos); //shooting arrow from new position
+		isAllowed = board->isMoveAllowed(newPos, arrowPos); //shooting arrow from new position; is shooting into allowed square
 	}
 	board->placeArrow(arrowPos);
 	ui->placeArrow(arrowPos);

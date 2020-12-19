@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Ai.cpp" />
+    <ClCompile Include="AmazonMove.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="ChessCode.cpp" />
     <ClCompile Include="Main.cpp" />

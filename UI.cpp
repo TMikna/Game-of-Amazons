@@ -2,6 +2,12 @@
 #include <chrono>  //for sleep
 #include <thread>  //for sleep
 
+#include <algorithm>
+#include <iostream>
+#include <stdint.h>
+#include <fstream>
+#include <list>
+
 //UI based on chess tutorial: https://www.youtube.com/watch?v=_4EuZI8Q8cs
 
 UI::UI()
@@ -27,7 +33,7 @@ void UI::display()
 {
 	window.clear();
 	window.draw(sBoard);
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < c::AMAZONS; i++)
 		window.draw(sQueens[i]);
 
 	for (int i = 0; i < arrowCount; i++)
@@ -53,12 +59,16 @@ void UI::loadQueens(int** amazonsPos)
 
 void UI::loadArrows()
 {
-	for (int i = 0; i < 92; i++)
+	for (int i = 0; i < c::MAX_ARROWS; i++)
 	{
 		sArrows[i].setTexture(tArrow);
 		sArrows[i].setPosition(-100, -100);
 	}
 }
+
+//TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+// moving amazons
+
 
 Vector2i UI::pickAmazon()
 {
@@ -125,6 +135,23 @@ void UI::setAmazonPosition(Vector2i pos)
 	display();
 }
 
+void UI::changeAmazonPosition(Vector2i oldPos, Vector2i newPos)
+{
+	// find position 
+	for (int i = 0; i < c::AMAZONS; i++)
+		if (sQueens[i].getGlobalBounds().contains(oldPos.y * cUI::SQUARE_SIZE, oldPos.x * cUI::SQUARE_SIZE))
+		{
+			n = i; // set currently used amazon
+			setAmazonPosition(newPos);
+			return;
+		}
+}
+
+
+
+//TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+// placing arrows
+
 Vector2i UI::chooseArrowPlace()
 {
 	Event e;
@@ -152,3 +179,5 @@ void UI::placeArrow(Vector2i arrowPos)
 
 	display();
 }
+
+

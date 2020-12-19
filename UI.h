@@ -21,6 +21,8 @@ public:
 	Vector2i chooseArrowPlace();
 	void setAmazonPosition(Vector2i mousePos);
 	void placeArrow(Vector2i arrowPos);
+	void changeAmazonPosition(Vector2i oldPos, Vector2i newPos);
+
 
 private:
 
