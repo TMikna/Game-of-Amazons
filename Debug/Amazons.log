@@ -1,8 +1,1 @@
-﻿  Ai.cpp
-C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\Ai.cpp(35,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Board.cpp
-  Main.cpp
-  Person.cpp
-  Player.cpp
-  Generating Code...
-  Amazons.vcxproj -> C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\Debug\Amazons.exe
+﻿  Amazons.vcxproj -> C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\Debug\Amazons.exe

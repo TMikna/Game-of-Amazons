@@ -12,10 +12,10 @@
 
 UI::UI()
 {
-    window.create(VideoMode(600, 600), "TheChess!");
+    window.create(VideoMode(cUI::BOARD_WIDTH, cUI::BOARD_HEIGHT), "TheChess!");
 }
 
-void UI::loadBoard(int** amazonsPos, std::string boardPath, std::string queensPath, std::string arrowPath)
+void UI::loadBoard(int** amazonsPos, std::string boardPath, std::string queensPath, std::string arrowPath, std::string winMsgPath)
 {
 	tBoard.loadFromFile(boardPath);
 	sBoard.setTexture(tBoard, true);
@@ -25,6 +25,9 @@ void UI::loadBoard(int** amazonsPos, std::string boardPath, std::string queensPa
 
 	tArrow.loadFromFile(arrowPath);
 	loadArrows();
+
+	tWinMsg.loadFromFile(winMsgPath);
+	loadWinMsg();
 
 	display();
 };
@@ -38,6 +41,9 @@ void UI::display()
 
 	for (int i = 0; i < arrowCount; i++)
 		window.draw(sArrows[i]);
+
+	for (int i = 0; i < 2; i++)
+		window.draw(sWinMsg[i]);
 	
 	window.display();
 }
@@ -65,6 +71,26 @@ void UI::loadArrows()
 		sArrows[i].setPosition(-100, -100);
 	}
 }
+
+void UI::loadWinMsg()
+{
+	sWinMsg[0].setTexture(tWinMsg);
+	sWinMsg[0].setTextureRect(IntRect(0, cUI::WIN_MSG_HEIGHT * 0, cUI::WIN_MSG_WIDTH, cUI::WIN_MSG_HEIGHT));
+	sWinMsg[0].setPosition(-200,-200);
+
+	sWinMsg[1].setTexture(tWinMsg);
+	sWinMsg[1].setTextureRect(IntRect(0, cUI::WIN_MSG_HEIGHT * 1, cUI::WIN_MSG_WIDTH, cUI::WIN_MSG_HEIGHT));
+	sWinMsg[1].setPosition(-200, -200);
+}
+
+void UI::displayWinner(int teamColor)
+{
+	int x = cUI::BOARD_WIDTH / 2 - cUI::WIN_MSG_WIDTH / 2;
+	int y = cUI::BOARD_HEIGHT / 2 - cUI::WIN_MSG_HEIGHT / 2;
+	sWinMsg[teamColor-1].setPosition(x, y);
+	display();
+}
+
 
 //TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
 // moving amazons

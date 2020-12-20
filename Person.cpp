@@ -31,3 +31,8 @@ void Person::shootArrow()
 	board->placeArrow(arrowPos);
 	ui->placeArrow(arrowPos);
 }
+
+bool Person::hasPossibleMove()
+{
+	return board->hasMove(teamColor);
+}

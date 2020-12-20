@@ -15,9 +15,9 @@ public:
 	//Virtual function
 	virtual void moveAmazon();
 	virtual void shootArrow();
+	virtual bool hasPossibleMove();
 
 private:
-	int teamColor = -1; // whites or blacks, -1 = neither
 	UI* ui;
 	Board* board;
 	Vector2i oldPos, newPos, arrowPos;

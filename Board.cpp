@@ -69,13 +69,13 @@ std::vector<AmazonMove>* Board::findAllMovesFrom(Vector2i pos, std::vector<Amazo
 	// go up rigth;
 	k = pos.x;
 	l = pos.y;
-	while (k++ > 0 && ++l < c::BOARD_SIZE && !board[k][l])
+	while (k-- > 0 && ++l < c::BOARD_SIZE && !board[k][l])
 		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
 
 	// go up left;
 	k = pos.x;
 	l = pos.y;
-	while (k++ > 0 && l-- > 0 && !board[k][l])
+	while (k-- > 0 && l-- > 0 && !board[k][l])
 		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
 
 	return moves;
@@ -156,6 +156,37 @@ inline bool Board::isQueenTrajectory(Vector2i oldPos, Vector2i newPos)
 	if (dx == dy)
 		return true;  // diagonal move
 	return false; // all other cases are not allowed
+}
+
+// returns true if given player has at least one possible move with any of his amazons
+bool Board::hasMove(int teamColor)
+{
+	for (int i = 0; i < c::BOARD_SIZE; i++)
+		for (int j = 0; j < c::BOARD_SIZE; j++)
+			if (board[i][j] == teamColor)
+			{
+				if (hasMove(Vector2i(i, j)))
+					return true;
+			}
+	return false;
+}
+
+// returns true if given amazon has at least one possible move
+bool Board::hasMove(Vector2i amazon)
+{
+	for (int i = -1; i <= 1; i++)
+		for (int j = -1; j <= 1; j++)
+		{
+			// if (i == j == 0)      //TODO: investigate seems compare i and j, then the result (boolean) compares with 0. So if j != i -> false == false -> true
+			if (i == 0 && j == 0) //the spot amazon is standing. Not necessary since it is always not true
+				continue;
+			int x = amazon.x + i;
+			int y = amazon.y + j;
+			if (board[x][y] == 0) // is space empty
+				if ( (x >= 0 && x < c::BOARD_SIZE) && (y >= 0 && y < c::BOARD_SIZE)) // is space on board
+					return true;
+		}
+	return false;
 }
 
 void Board::moveAmazon(Vector2i oldPos, Vector2i newPos)

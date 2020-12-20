@@ -13,7 +13,7 @@ public:
 	RenderWindow window;
 
 	UI();
-	void loadBoard(int** amazonsPos, std::string boardPath, std::string queensPath, std::string arrowPath);
+	void loadBoard(int** amazonsPos, std::string boardPath, std::string queensPath, std::string arrowPath, std::string winMsgPath);
 	void display();
 
 	Vector2i pickAmazon(); 
@@ -22,6 +22,7 @@ public:
 	void setAmazonPosition(Vector2i mousePos);
 	void placeArrow(Vector2i arrowPos);
 	void changeAmazonPosition(Vector2i oldPos, Vector2i newPos);
+	void displayWinner(int teamColor);
 
 
 private:
@@ -31,9 +32,11 @@ private:
 
 	int arrowCount = 0; // Amount of arrows on board
 
-	Texture tBoard, tQueens, tArrow;
-	Sprite sBoard, sQueens[c::AMAZONS], sArrows[c::MAX_ARROWS];
+	Texture tBoard, tQueens, tArrow, tWinMsg;
+	Sprite sBoard, sQueens[c::AMAZONS], sArrows[c::MAX_ARROWS], sWinMsg[2];
 
 	void loadQueens(int** amazonsPos);
 	void loadArrows();
+	void loadWinMsg();
+
 };

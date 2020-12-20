@@ -37,3 +37,8 @@ inline int Ai::chooseMove(int max)
 	/* generate secret number between 0 and max: */
 	return rand() % max;
 }
+
+bool Ai::hasPossibleMove()
+{
+	return board->hasMove(teamColor);
+}
