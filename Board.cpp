@@ -116,6 +116,10 @@ bool Board::isMoveAllowed(Vector2i oldPos, Vector2i newPos)
 {
 	if (!isQueenTrajectory(oldPos, newPos))
 		return false;
+
+	if (!isOnBoard(newPos))
+		return false;
+
 	int y = oldPos.y;
 	int x = oldPos.x;
 	int yNew = newPos.y;
@@ -158,6 +162,20 @@ inline bool Board::isQueenTrajectory(Vector2i oldPos, Vector2i newPos)
 	return false; // all other cases are not allowed
 }
 
+/// <summary>
+/// Is pos position on the chess board (such field in board 2d array exists)?
+/// Pasticulary important because in C++ if we have int[5][5] a, a[2][5] works and points to a[3][0]
+/// </summary>
+/// <param name="pos"></param>
+/// <returns></returns>
+inline bool Board::isOnBoard(Vector2i pos)
+{
+	if (pos.x < 0 || pos.x >= c::BOARD_SIZE)
+		return false; // pos is either above or below board
+	if (pos.y < 0 || pos.y >= c::BOARD_SIZE)
+		return false; // pos is either to the left or right from the board
+	return true; // not above, not below, not too left or too right - pos is on the board
+}
 // returns true if given player has at least one possible move with any of his amazons
 bool Board::hasMove(int teamColor)
 {
@@ -191,6 +209,7 @@ bool Board::hasMove(Vector2i amazon)
 
 void Board::moveAmazon(Vector2i oldPos, Vector2i newPos)
 {
+	//TODO error prevention, maybe exception? if newPos is out of bounds
 	board[newPos.x][newPos.y] = board[oldPos.x][oldPos.y]; // move amazon
 	board[oldPos.x][oldPos.y] = 0; // empty old place
 }

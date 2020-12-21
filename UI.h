@@ -23,6 +23,7 @@ public:
 	void placeArrow(Vector2i arrowPos);
 	void changeAmazonPosition(Vector2i oldPos, Vector2i newPos);
 	void displayWinner(int teamColor);
+	void waitClose();
 
 
 private:

@@ -48,8 +48,8 @@ int main()
 			break;
 		}	
 	}
-	int x;
-	std::cin>>x;
+	
+	ui.waitClose();
 
 	return 0;
 }

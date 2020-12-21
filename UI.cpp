@@ -91,6 +91,19 @@ void UI::displayWinner(int teamColor)
 	display();
 }
 
+void UI::waitClose()
+{
+	Event e;
+	do
+	{
+		window.waitEvent(e);
+	} while (e.type != Event::Closed);
+
+	if (e.type == Event::Closed)
+	window.close();
+}
+
+
 
 //TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
 // moving amazons
