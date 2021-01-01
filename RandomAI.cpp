@@ -20,7 +20,7 @@ void RandomAI::moveAmazon()
 void RandomAI::shootArrow()
 {
 	auto mov = board->findAllMovesFrom(newPos);
-	std::vector<AmazonMove> moves = *mov;
+	std::vector<AmazonMove> moves = mov;
 	int moveCount = moves.size();
 	AmazonMove move = moves[chooseMove(moveCount)];
 	arrowPos = move.to;

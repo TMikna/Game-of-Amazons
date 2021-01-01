@@ -22,7 +22,7 @@ std::vector<AmazonMove> Board::findAllMoves(int teamColor)
 }
 
 // find all possible moves from a position
-std::vector<AmazonMove>* Board::findAllMovesFrom(Vector2i pos, std::vector<AmazonMove> *moves)
+std::vector<AmazonMove> Board::findAllMovesFrom(Vector2i pos, std::vector<AmazonMove> *moves)
 {
 	if (!moves)
 		moves = new std::vector<AmazonMove>;
@@ -78,7 +78,7 @@ std::vector<AmazonMove>* Board::findAllMovesFrom(Vector2i pos, std::vector<Amazo
 	while (k-- > 0 && l-- > 0 && !board[k][l])
 		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
 
-	return moves;
+	return *moves;
 }
 
 //Same as findAllMoves but only counting instead putting into array

@@ -24,10 +24,12 @@ int main()
 
 	Board board;
 	UI ui;
-	Person person1 (&board, &ui, WHITES);
-	//Person person2 (&board, &ui, BLACKS);
-	RandomAI rAI(&board, &ui, BLACKS);
-	AlfaBetaAI abAI(&board, &ui, BLACKS);
+	Person personw (&board, &ui, WHITES);
+	Person personb (&board, &ui, BLACKS);
+	RandomAI rAIw(&board, &ui, WHITES);
+	RandomAI rAIb(&board, &ui, BLACKS);
+	AlfaBetaAI abAIw(&board, &ui, WHITES);
+	AlfaBetaAI abAIb(&board, &ui, BLACKS);
 	//Ai ai2(&board, &ui, WHITES);
 
 	ui.loadBoard(board.getAmazons(), "images/Board10x10.png", "images/queens2.png", "images/arrow.png", "images/winMsg.png");
@@ -36,8 +38,8 @@ int main()
 	//auto moves = board.findAllMoves(WHITES);
 	//ai.moveAmazon();
 
-	auto p1 = person1;  // player 1
-	auto p2 = abAI;		// player 2
+	auto p1 = personw;    // player 1 (Whites)
+	auto p2 = abAIb;		// player 2 (Blacks)
 
 	while (ui.window.isOpen())
 	{

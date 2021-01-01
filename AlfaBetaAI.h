@@ -27,9 +27,6 @@ private:
 	// int** amazons; //amazons, controlled by AI;
 
 	inline float AlfaBeta(Board* searchBoard, int depth, bool maximizingPlayer);
-
-
-	inline int chooseMove(int max);
 	inline float Evaluate(Board* board, int nextMovingTeamColor);
 
 };
