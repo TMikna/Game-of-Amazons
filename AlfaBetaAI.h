@@ -26,11 +26,11 @@ private:
 	AmazonMove move; //holds oldPos and newPos
 	// int** amazons; //amazons, controlled by AI;
 
-	inline double AlfaBeta(Board* searchBoard, int depth, bool maximizingPlayer);
+	inline float AlfaBeta(Board* searchBoard, int depth, bool maximizingPlayer);
 
 
 	inline int chooseMove(int max);
-	inline double Evaluate(Board* board, int nextMovingTeamColor);
+	inline float Evaluate(Board* board, int nextMovingTeamColor);
 
 };
 

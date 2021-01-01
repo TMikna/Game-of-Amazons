@@ -9,14 +9,14 @@ void AlfaBetaAI::moveAmazon()
 
 #pragma region Modilied 1st layer of alfa-beta search
 
-	double maxEva = std::numeric_limits<int>::min(); // -infinity (closest we can get). Less than -2*10^9
+	float maxEva = -std::numeric_limits<float>::max(); // -infinity (closest we can get). Less than -2*10^9
 	//if (!board->hasMove(teamColor)) //Lost, should never get here
 	
 	auto possibleMoves = boardCopy.findAllMoves(teamColor);
 	for (auto &move : possibleMoves) // access by reference to avoid copying
 	{
 		boardCopy.moveAmazon(move);
-		double evaluation = AlfaBeta(&boardCopy, maxDepth -1, false);
+		float evaluation = AlfaBeta(&boardCopy, maxDepth -1, false);
 		if (evaluation > maxEva)
 		{
 			maxEva = evaluation;
@@ -37,7 +37,9 @@ void AlfaBetaAI::moveAmazon()
 }
 
 //TODO next: add arrows
-inline double AlfaBetaAI::AlfaBeta(Board *searchBoard, int depth, bool maximizingPlayer)
+//Is it better to find best move and then best arrow sott for it
+//Or best move + arrow (find all moves and all possible arrow possitions and find the best? This sounds better and easier to implement but a lot move performance expensive
+inline float AlfaBetaAI::AlfaBeta(Board *searchBoard, int depth, bool maximizingPlayer)
 {
 	// moved into each player's section since my evaluation needs to know who's moving next
 	//if (depth == 0)
@@ -50,16 +52,16 @@ inline double AlfaBetaAI::AlfaBeta(Board *searchBoard, int depth, bool maximizin
 		if (depth == 0 || !board->hasMove(teamColor)) // Reached dec]sired depth or end of the game
 			return Evaluate(searchBoard, teamColor);
 
-		double maxEva = std::numeric_limits<int>::min(); // -infinity (closest we can get). Less than -2*10^9
+		float maxEva = -std::numeric_limits<float>::max(); // -infinity (closest we can get). Less than -2*10^9
 		auto possibleMoves = searchBoard->findAllMoves(teamColor);
 		for (auto &move : possibleMoves) // access by reference to avoid copying
 		{
 			searchBoard->moveAmazon(move);
-			double evaluation = AlfaBeta(searchBoard, depth - 1, false);
+			float evaluation = AlfaBeta(searchBoard, depth - 1, false);
 			maxEva = maxEva >= evaluation ? maxEva : evaluation;        //gives Maximum of the values  
-			searchBoard->moveAmazon(move.to, move.from);	               //undo move before exiting
-			return maxEva;
+			searchBoard->moveAmazon(move.to, move.from);	               //undo move before exitingž
 		}
+		return maxEva;
 
 	}
 	else
@@ -67,23 +69,24 @@ inline double AlfaBetaAI::AlfaBeta(Board *searchBoard, int depth, bool maximizin
 		if (depth == 0 || !board->hasMove(oppositeTeamColor)) // Reached dec]sired depth or end of the game
 			return Evaluate(searchBoard, oppositeTeamColor);
 
-		double minEva = std::numeric_limits<int>::max(); // +infinity (closest we can get). More than 2*10^9
+		float minEva = std::numeric_limits<float>::max(); // +infinity (closest we can get). More than 2*10^9
 		auto possibleMoves = searchBoard->findAllMoves(oppositeTeamColor);
 		for (auto &move : possibleMoves) // access by reference to avoid copying
 		{
-			double evaluation = AlfaBeta(searchBoard, depth - 1, true);
+			searchBoard->moveAmazon(move);
+			float evaluation = AlfaBeta(searchBoard, depth - 1, true);
 			minEva = minEva <= evaluation ? minEva : evaluation;
-			searchBoard->moveAmazon(move.to, move.from);	               //undo move before exiting
-			return minEva;
+			searchBoard->moveAmazon(move.to, move.from);	               //undo move before exiting	
 		}
+		return minEva;
 	}
 }
 
 
 // Editing Evaluation formula no possible move case in AlfaBetaAI should be reviewed
-inline double AlfaBetaAI::Evaluate(Board* board, int nextMovingTeamColor)
+inline float AlfaBetaAI::Evaluate(Board* board, int nextMovingTeamColor)
 {
-	double bias = 0.5;
+	float bias = 0.5;
 	if (nextMovingTeamColor == teamColor)
 		bias *= -1;
 	int movCount = board->countAllMoves(teamColor);
@@ -91,7 +94,7 @@ inline double AlfaBetaAI::Evaluate(Board* board, int nextMovingTeamColor)
 
 	// evaluation = moves difference divided by moves sum
 	// evaluaion range [-1;1] 0 is neutral, is positive - player is in better possition. The closer to 1 the better. Same the more negative the worse position it is
-	double evaluation = (movCount - enemyMovCount + bias) / (movCount + enemyMovCount + std::abs(bias));
+	float evaluation = (float(movCount - enemyMovCount) + bias) / (float(movCount + enemyMovCount) + std::abs(bias));
 	// bias for: it can happen that there's 0 free spaces. Then the one moving next loses
 	// It might also help getting close to such position
 	return evaluation;

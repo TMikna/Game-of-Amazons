@@ -14,9 +14,9 @@
 
 int main()
 {
-	std::cout << sizeof(AmazonMove{ Vector2i(9, 5), Vector2i(1, 7) });
+	std::cout << sizeof(int);
 	std::cout << std::endl;
-	std::cout << sizeof(Vector2<Int8>(9, 5));
+	std::cout << sizeof(float);
 	std::cout << std::endl;
 	std::array<int, 4> a;
 	int b[4] = {1,2,3,4};
