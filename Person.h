@@ -5,11 +5,11 @@ class Person :
     public Player
 {
 public:
-	Person(Board *board, UI *ui, int teamColor)
+	Person(Board *board, UI *ui, int teamColor):Player(teamColor)
 	{
 		this->board = board;
 		this->ui = ui;
-		this->teamColor = teamColor;
+
 	}
 	//Virtual function
 	virtual void moveAmazon();

@@ -18,6 +18,12 @@ public:
 		return teamColor;
 	}
 
+	Player(int teamColor)
+	{
+		this->teamColor = teamColor;
+		this->oppositeTeamColor = (teamColor * 2) % 3;
+	}
+
 	//Pure Virtual function
 	virtual void moveAmazon() = 0;
 
@@ -28,6 +34,7 @@ public:
 
 protected:
 	int teamColor = -1; // whites or blacks, -1 = neither
+	int oppositeTeamColor = -1; // whites or blacks, -1 = neither
 
 private:
 };

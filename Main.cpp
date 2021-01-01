@@ -6,13 +6,28 @@
 #include "RandomAI.h"
 
 
+
+#include <chrono>  // for high_resolution_clock
+#include <algorithm>
+#include "AlfaBetaAI.h"
+
+
 int main()
 {
+	std::cout << sizeof(AmazonMove{ Vector2i(9, 5), Vector2i(1, 7) });
+	std::cout << std::endl;
+	std::cout << sizeof(Vector2<Int8>(9, 5));
+	std::cout << std::endl;
+	std::array<int, 4> a;
+	int b[4] = {1,2,3,4};
+	std::cout << sizeof(b);
+
 	Board board;
 	UI ui;
 	Person person1 (&board, &ui, WHITES);
 	//Person person2 (&board, &ui, BLACKS);
 	RandomAI rAI(&board, &ui, BLACKS);
+	AlfaBetaAI abAI(&board, &ui, BLACKS);
 	//Ai ai2(&board, &ui, WHITES);
 
 	ui.loadBoard(board.getAmazons(), "images/Board10x10.png", "images/queens2.png", "images/arrow.png", "images/winMsg.png");
@@ -22,7 +37,7 @@ int main()
 	//ai.moveAmazon();
 
 	auto p1 = person1;  // player 1
-	auto p2 = rAI;		// player 2
+	auto p2 = abAI;		// player 2
 
 	while (ui.window.isOpen())
 	{

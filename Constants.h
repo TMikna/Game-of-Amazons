@@ -1,7 +1,10 @@
 #pragma once
 
+#include <array>
+
 #define WHITES 1   // white figures; 1st player figures
 #define BLACKS 2   // black figures; 2nd player figures
+
 // general constants
 namespace c
 {
@@ -13,7 +16,9 @@ namespace c
     //const int AMAZONS = 4;       // total amount of amazons on the board. Should be 8 unless board in board class is changed. must be divisible by 2
     //const int MAX_ARROWS = 12;  // max possible amount of arrows on the board. Amount of board squares - QUEESNS. 92 on a standart 10x10
 
+    const int MAX_SEARCH_DEPTH = 15;
 } 
+
     
 // constants for UI, mostly related to window size
 namespace cUI
@@ -26,4 +31,22 @@ namespace cUI
 
     const int WIN_MSG_WIDTH = 300;
     const int WIN_MSG_HEIGHT = 50;
+}
+
+typedef std::array<std::array<int, c::BOARD_SIZE>, c::BOARD_SIZE> BoardArray;
+
+//TODO is it possible to place initial board into namespace without placing BoardArray in it
+namespace init
+{
+    const BoardArray INITIAL_BOARD =
+    { 0, 0, 0, 2, 0, 0, 2, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      2, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 1, 0, 0, 1, 0, 0, 0 };
 }

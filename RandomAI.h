@@ -6,20 +6,16 @@ class RandomAI :
 	public Player
 {
 public:
-	RandomAI(Board* board, UI* ui, int teamColor)
+	RandomAI(Board* board, UI* ui, int teamColor):Player(teamColor)
 	{
 		this->board = board;
 		this->ui = ui;
-		this->teamColor = teamColor;
 	}
 	//Virtual function
 	virtual void moveAmazon();
 	virtual void shootArrow();
 	virtual bool hasPossibleMove();
 
-
-
-	
 
 private:
 	UI* ui;
@@ -29,5 +25,4 @@ private:
 	// int** amazons; //amazons, controlled by AI;
 
 	inline int chooseMove(int max);
-
 };

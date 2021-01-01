@@ -81,6 +81,81 @@ std::vector<AmazonMove>* Board::findAllMovesFrom(Vector2i pos, std::vector<Amazo
 	return moves;
 }
 
+//Same as findAllMoves but only counting instead putting into array
+int Board::countAllMoves(int teamColor)
+{
+	int movesCount = 0;
+
+	for (int i = 0; i < c::BOARD_SIZE; i++)
+		for (int j = 0; j < c::BOARD_SIZE; j++)
+			if (board[i][j] == teamColor)
+			{
+				countAllMovesFrom(Vector2i(i, j), &movesCount);
+			}
+
+	return movesCount;
+}
+
+// find all possible moves from a position
+int Board::countAllMovesFrom(Vector2i pos, int *movesCount)
+{
+	if (!movesCount)
+		(*movesCount) = 0;
+
+	int k;
+	int l;
+
+	// go down;
+	k = pos.x;
+	l = pos.y;
+	while (++k < c::BOARD_SIZE && !board[k][l])
+		(*movesCount)++;
+
+	// go up;
+	k = pos.x;
+	l = pos.y;
+	while (k-- > 0 && !board[k][l]) //while not 0 (aka not false)
+		(*movesCount)++;
+
+	// go right;
+	k = pos.x;
+	l = pos.y;
+	while (++l < c::BOARD_SIZE && !board[k][l])
+		(*movesCount)++;
+
+	// go left;
+	k = pos.x;
+	l = pos.y;
+	while (l-- > 0 && !board[k][l])
+		(*movesCount)++;
+
+	// go down rigth;
+	k = pos.x;
+	l = pos.y;
+	while (++k < c::BOARD_SIZE && ++l < c::BOARD_SIZE && !board[k][l])
+		(*movesCount)++;
+
+	// go down left;
+	k = pos.x;
+	l = pos.y;
+	while (++k < c::BOARD_SIZE && l-- > 0 && !board[k][l])
+		(*movesCount)++;
+
+	// go up rigth;
+	k = pos.x;
+	l = pos.y;
+	while (k-- > 0 && ++l < c::BOARD_SIZE && !board[k][l])
+		(*movesCount)++;
+
+	// go up left;
+	k = pos.x;
+	l = pos.y;
+	while (k-- > 0 && l-- > 0 && !board[k][l])
+		(*movesCount)++;
+
+	return *movesCount;
+}
+
 int** Board::getAmazons()
 {
 	int** amazons = 0;
@@ -200,9 +275,10 @@ bool Board::hasMove(Vector2i amazon)
 				continue;
 			int x = amazon.x + i;
 			int y = amazon.y + j;
+			if ((x < 0 || x >= c::BOARD_SIZE) || (y < 0 || y >= c::BOARD_SIZE))
+				continue;		  // space is not on the board
 			if (board[x][y] == 0) // is space empty
-				if ( (x >= 0 && x < c::BOARD_SIZE) && (y >= 0 && y < c::BOARD_SIZE)) // is space on board
-					return true;
+				return true;
 		}
 	return false;
 }
@@ -212,6 +288,11 @@ void Board::moveAmazon(Vector2i oldPos, Vector2i newPos)
 	//TODO error prevention, maybe exception? if newPos is out of bounds
 	board[newPos.x][newPos.y] = board[oldPos.x][oldPos.y]; // move amazon
 	board[oldPos.x][oldPos.y] = 0; // empty old place
+}
+
+void Board::moveAmazon(AmazonMove move)
+{
+	moveAmazon(move.from, move.to);
 }
 
 
