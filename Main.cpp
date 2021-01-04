@@ -38,11 +38,14 @@ int main()
 	//auto moves = board.findAllMoves(WHITES);
 	//ai.moveAmazon();
 
-	auto p1 = personw;    // player 1 (Whites)
+	auto p1 = rAIw;    // player 1 (Whites)
 	auto p2 = abAIb;		// player 2 (Blacks)
 
 	while (ui.window.isOpen())
 	{
+		//for debug/board state following purposes
+		board.printBoard();
+
 		if (p1.hasPossibleMove())
 		{
 			p1.makeMove();

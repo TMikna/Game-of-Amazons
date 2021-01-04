@@ -1,8 +1,6 @@
 #pragma once
-
-#include <SFML/Graphics.hpp>
 #include "Constants.h"
-#include "AmazonMove.cpp"
+#include "AmazonMove.h"
 #include <array>
 
 
@@ -33,6 +31,8 @@ public:
 
     bool hasMove(int teamColor);
     bool hasMove(Vector2i amazon);
+
+    void printBoard();
 
     BoardArray getBoardState() { return board; };
     //currently unused

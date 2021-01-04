@@ -30,9 +30,6 @@
     <ClCompile Include="Person.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AmazonMove.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RandomAI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -60,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AlfaBetaAI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AmazonMove.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

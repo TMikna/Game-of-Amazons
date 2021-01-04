@@ -7,6 +7,18 @@ Board::Board()
     //window.create(VideoMode(600, 600), "TheChess!");
 }
 
+void Board::printBoard()
+{
+	for (int i = 0; i < c::BOARD_SIZE; i++)
+	{
+		for (int j = 0; j < c::BOARD_SIZE; j++)
+		{
+			std::cout << board[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+}
+
 std::vector<AmazonMove> Board::findAllMoves(int teamColor)
 {
 	std::vector<AmazonMove> moves;

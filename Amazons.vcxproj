@@ -153,7 +153,6 @@
   <ItemGroup>
     <ClCompile Include="AlfaBetaAI.cpp" />
     <ClCompile Include="RandomAI.cpp" />
-    <ClCompile Include="AmazonMove.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Person.cpp" />
@@ -162,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlfaBetaAI.h" />
+    <ClInclude Include="AmazonMove.h" />
     <ClInclude Include="RandomAI.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Constants.h" />

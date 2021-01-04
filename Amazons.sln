@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Amazons", "Amazons.vcxproj", "{D54D8787-78D8-4589-8487-18F412F64D1C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTesting", "..\UnitTesting\UnitTesting.vcxproj", "{8E616FA3-CBC3-463E-B4E9-86D6525FFEEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{D54D8787-78D8-4589-8487-18F412F64D1C}.Release|x64.Build.0 = Release|x64
 		{D54D8787-78D8-4589-8487-18F412F64D1C}.Release|x86.ActiveCfg = Release|Win32
 		{D54D8787-78D8-4589-8487-18F412F64D1C}.Release|x86.Build.0 = Release|Win32
+		{8E616FA3-CBC3-463E-B4E9-86D6525FFEEC}.Debug|x64.ActiveCfg = Debug|x64
+		{8E616FA3-CBC3-463E-B4E9-86D6525FFEEC}.Debug|x64.Build.0 = Debug|x64
+		{8E616FA3-CBC3-463E-B4E9-86D6525FFEEC}.Debug|x86.ActiveCfg = Debug|Win32
+		{8E616FA3-CBC3-463E-B4E9-86D6525FFEEC}.Debug|x86.Build.0 = Debug|Win32
+		{8E616FA3-CBC3-463E-B4E9-86D6525FFEEC}.Release|x64.ActiveCfg = Release|x64
+		{8E616FA3-CBC3-463E-B4E9-86D6525FFEEC}.Release|x64.Build.0 = Release|x64
+		{8E616FA3-CBC3-463E-B4E9-86D6525FFEEC}.Release|x86.ActiveCfg = Release|Win32
+		{8E616FA3-CBC3-463E-B4E9-86D6525FFEEC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
