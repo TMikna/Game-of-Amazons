@@ -36,6 +36,9 @@
     <ClCompile Include="AlfaBetaAI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AlfaBetaAI_fs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h">
@@ -60,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AmazonMove.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AlfaBetaAI_fs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

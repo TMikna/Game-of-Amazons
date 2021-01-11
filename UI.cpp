@@ -103,6 +103,12 @@ void UI::waitClose()
 	window.close();
 }
 
+void UI::closeWindow()
+{
+	window.close();
+}
+
+
 
 
 //TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT

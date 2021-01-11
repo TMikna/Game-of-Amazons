@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AlfaBetaAI.cpp" />
+    <ClCompile Include="AlfaBetaAI_fs.cpp" />
     <ClCompile Include="RandomAI.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlfaBetaAI.h" />
+    <ClInclude Include="AlfaBetaAI_fs.h" />
     <ClInclude Include="AmazonMove.h" />
     <ClInclude Include="RandomAI.h" />
     <ClInclude Include="Board.h" />

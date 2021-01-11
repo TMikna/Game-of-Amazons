@@ -9,6 +9,7 @@ Board::Board()
 
 void Board::printBoard()
 {
+	std::cout << std::endl;
 	for (int i = 0; i < c::BOARD_SIZE; i++)
 	{
 		for (int j = 0; j < c::BOARD_SIZE; j++)
@@ -17,6 +18,7 @@ void Board::printBoard()
 		}
 		std::cout << std::endl;
 	}
+	
 }
 
 std::vector<AmazonMove> Board::findAllMoves(int teamColor)

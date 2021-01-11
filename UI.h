@@ -24,6 +24,8 @@ public:
 	void changeAmazonPosition(Vector2i oldPos, Vector2i newPos);
 	void displayWinner(int teamColor);
 	void waitClose();
+	void closeWindow();
+
 
 
 private:

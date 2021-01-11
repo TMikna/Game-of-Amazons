@@ -88,16 +88,16 @@ inline float AlfaBetaAI::AlfaBeta(Board *searchBoard, int depth, float * alpha, 
 		
 	if (maximizingPlayer)      // for Maximizer Player  
 	{
-		if (depth == 0 || !board->hasMove(teamColor)) // Reached dec]sired depth or end of the game
+		if (depth == 0 || !board->hasMove(teamColor)) // Reached decsired depth or end of the game
 			return Evaluate(searchBoard, teamColor);
 
 		AmazonMove bestMove;
-		float maxEva = -std::numeric_limits<float>::max(); // -infinity (closest we can get). Less than -2*10^9
+		float maxEva = -std::numeric_limits<float>::max(); // -infinity (closest we can get)
 		auto possibleMoves = searchBoard->findAllMoves(teamColor);
 
 		for (auto &move : possibleMoves) // access by reference to avoid copying
 		{
-			searchBoard->moveAmazon(move);
+			searchBoard->moveAmazon(move.from, move.to);
 			float evaluation = AlfaBeta(searchBoard, depth - 1, alpha, beta, false);
 			if (evaluation > maxEva)
 			{
