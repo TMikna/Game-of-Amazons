@@ -88,7 +88,7 @@ inline float AlfaBetaAI::AlfaBeta(Board *searchBoard, int depth, float * alpha, 
 		
 	if (maximizingPlayer)      // for Maximizer Player  
 	{
-		if (depth == 0 || !board->hasMove(teamColor)) // Reached decsired depth or end of the game
+		if (depth == 0 || !searchBoard->hasMove(teamColor)) // Reached decsired depth or end of the game
 			return Evaluate(searchBoard, teamColor);
 
 		AmazonMove bestMove;
@@ -133,7 +133,7 @@ inline float AlfaBetaAI::AlfaBeta(Board *searchBoard, int depth, float * alpha, 
 
 	else
 	{	// for Minimizer player  
-		if (depth == 0 || !board->hasMove(oppositeTeamColor)) // Reached dec]sired depth or end of the game
+		if (depth == 0 || !searchBoard->hasMove(oppositeTeamColor)) // Reached decsired depth or end of the game
 			return Evaluate(searchBoard, oppositeTeamColor);
 
 		AmazonMove worstMove;
@@ -142,7 +142,7 @@ inline float AlfaBetaAI::AlfaBeta(Board *searchBoard, int depth, float * alpha, 
 
 		for (auto &move : possibleMoves) // access by reference to avoid copying
 		{
-			searchBoard->moveAmazon(move);
+			searchBoard->moveAmazon(move.from, move.to);
 			float evaluation = AlfaBeta(searchBoard, depth - 1, alpha, beta, true);
 			if (evaluation < minEva)
 			{

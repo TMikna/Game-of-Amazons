@@ -15,6 +15,25 @@
 
 int main()
 {
+
+	//Board boardX;
+	//BoardArray testBoardState =
+	//{ 0, -1, 2, 2,
+	//0, 1, 1, -1,
+	//0, 0, 0, 0,
+	//0, 0, 0, 0, };
+	////{ 2, -1, -1, -1,
+	////  -1, -1, -1, 0,
+	////  0, 2, -1, 1,
+	////  1, 0, -1, 0, };
+
+	//{
+	//	boardX.setBoardState(testBoardState);
+	//	std::vector <AmazonMove> possibleMoves = boardX.findAllMoves(BLACKS);
+
+	//	bool X = boardX.hasMove(BLACKS);
+	//}
+
 	Board board;
 	UI ui;
 	Person personw (&board, &ui, WHITES);
@@ -34,9 +53,9 @@ int main()
 	//ai.moveAmazon();
 
 	auto pW = abAIw;    // player 1 (Whites)
-	auto pB = abAIfb;	// player 2 (Blacks)
+	auto pB = rAIb;	// player 2 (Blacks)
 
-
+	auto start = std::chrono::high_resolution_clock::now();
 
 	while (ui.window.isOpen())
 	{
@@ -63,6 +82,10 @@ int main()
 		}
 
 	}
+
+	auto finish = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> elapsed = finish - start;
+	std::cout << "Elapsed time: " << elapsed.count() << " s\n";
 
 	ui.waitClose();
 

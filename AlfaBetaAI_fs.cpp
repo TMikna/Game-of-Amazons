@@ -72,12 +72,12 @@ inline float AlfaBetaAI_fs::AlfaBeta(Board* searchBoard, int depth, float* alpha
 
 	if (maximizingPlayer)      // for Maximizer Player  
 	{
-		if (depth == 0 || !board->hasMove(teamColor)) // Reached decsired depth or end of the game
+		if (depth == 0 || !searchBoard->hasMove(teamColor)) // Reached decsired depth or end of the game
 			return Evaluate(searchBoard, teamColor);
 
 		float maxEva = -std::numeric_limits<float>::max(); // -infinity (closest we can get)
 		auto possibleMoves = searchBoard->findAllMoves(teamColor);
-		std::vector<AmazonMove> possibleArrows;
+		std::vector <AmazonMove> possibleArrows;
 		for (auto& move : possibleMoves) // access by reference to avoid copying
 		{
 			searchBoard->moveAmazon(move.from, move.to);					// do a move
@@ -107,12 +107,12 @@ inline float AlfaBetaAI_fs::AlfaBeta(Board* searchBoard, int depth, float* alpha
 
 	else
 	{	// for Minimizer player  
-		if (depth == 0 || !board->hasMove(oppositeTeamColor)) // Reached desired depth or end of the game
+		if (depth == 0 || !searchBoard->hasMove(oppositeTeamColor)) // Reached desired depth or end of the game
 			return Evaluate(searchBoard, oppositeTeamColor);
 
 		float minEva = std::numeric_limits<float>::max(); // +infinity (closest we can get)
 		auto possibleMoves = searchBoard->findAllMoves(oppositeTeamColor);
-		std::vector<AmazonMove> possibleArrows;
+		std::vector <AmazonMove> possibleArrows;
 		for (auto& move : possibleMoves) // access by reference to avoid copying
 		{
 			searchBoard->moveAmazon(move.from, move.to);					// do a move
@@ -132,7 +132,6 @@ inline float AlfaBetaAI_fs::AlfaBeta(Board* searchBoard, int depth, float* alpha
 					break;
 			}
 			searchBoard->moveAmazon(move.to, move.from);	                //undo move before trying another position
-
 			if (*alpha >= *beta)
 				break;
 		}
