@@ -139,7 +139,7 @@ inline float AlfaBetaAI_fs::AlfaBeta(Board* searchBoard, int depth, float* alpha
 	}
 }
 
-// Editing Evaluation formula no possible move case in AlfaBetaAI should be reviewed
+// Editing Evaluation formula no possible move case in AlfaBetaAI_ss should be reviewed
 inline float AlfaBetaAI_fs::Evaluate(Board* board, int nextMovingTeamColor)
 {
 	float bias = 0.5;

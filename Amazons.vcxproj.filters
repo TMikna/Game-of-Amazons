@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\AIs">
+      <UniqueIdentifier>{5d540ce8-58ff-4a6b-b4a7-bbb4f807aabc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AIs">
+      <UniqueIdentifier>{437b31d1-0f74-4297-984e-fecf533db0c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -30,14 +36,14 @@
     <ClCompile Include="Person.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RandomAI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AlfaBetaAI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AlfaBetaAI_fs.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\AIs</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomAI.cpp">
+      <Filter>Source Files\AIs</Filter>
+    </ClCompile>
+    <ClCompile Include="AlfaBetaAI_ss.cpp">
+      <Filter>Source Files\AIs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,17 +62,17 @@
     <ClInclude Include="Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RandomAI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AlfaBetaAI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AmazonMove.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AlfaBetaAI_fs.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\AIs</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomAI.h">
+      <Filter>Header Files\AIs</Filter>
+    </ClInclude>
+    <ClInclude Include="AlfaBetaAI_ss.h">
+      <Filter>Header Files\AIs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

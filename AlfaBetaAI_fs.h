@@ -3,6 +3,9 @@
 #include "UI.h"
 #include "Board.h"
 
+/// <summary>
+/// Alfa-Bera prining AI with full search of moves (compared to another when arrows are searched only for the best amazon)
+/// </summary>
 class AlfaBetaAI_fs :
     public Player
 {

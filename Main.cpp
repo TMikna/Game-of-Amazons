@@ -4,7 +4,7 @@
 #include "UI.h"
 #include "Person.h"
 #include "RandomAI.h"
-#include "AlfaBetaAI.h"
+#include "AlfaBetaAI_ss.h"
 #include "AlfaBetaAI_fs.h"
 
 
@@ -40,8 +40,8 @@ int main()
 	Person personb (&board, &ui, BLACKS);
 	RandomAI rAIw(&board, &ui, WHITES);
 	RandomAI rAIb(&board, &ui, BLACKS);
-	AlfaBetaAI abAIw(&board, &ui, WHITES);
-	AlfaBetaAI abAIb(&board, &ui, BLACKS);
+	AlfaBetaAI_ss abAIw(&board, &ui, WHITES);
+	AlfaBetaAI_ss abAIb(&board, &ui, BLACKS);
 	AlfaBetaAI_fs abAIfw(&board, &ui, WHITES);
 	AlfaBetaAI_fs abAIfb(&board, &ui, BLACKS);
 	//Ai ai2(&board, &ui, WHITES);
@@ -52,8 +52,8 @@ int main()
 	//auto moves = board.findAllMoves(WHITES);
 	//ai.moveAmazon();
 
-	auto pW = abAIw;    // player 1 (Whites)
-	auto pB = rAIb;	// player 2 (Blacks)
+	auto pW = personw;    // player 1 (Whites)
+	auto pB = abAIb;	// player 2 (Blacks)
 
 	auto start = std::chrono::high_resolution_clock::now();
 
@@ -99,7 +99,7 @@ int main()
 		Board board;
 		UI ui;
 		RandomAI rAIw(&board, &ui, WHITES);
-		AlfaBetaAI abAIb(&board, &ui, BLACKS);
+		AlfaBetaAI_ss abAIb(&board, &ui, BLACKS);
 		ui.loadBoard(board.getAmazons(), "images/Board10x10.png", "images/queens2.png", "images/arrow.png", "images/winMsg.png");
 		auto p1 = rAIw;    // player 1 (Whites)
 		auto p2 = abAIb;		// player 2 (Blacks)
