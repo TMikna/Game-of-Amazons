@@ -22,7 +22,7 @@ void AlfaBetaAI_fs::moveAmazon()
 		{
 			boardCopy.placeArrow(arrow.to);
 
-			float evaluation = AlfaBeta(&boardCopy, maxDepth - 1, &alpha, &beta, false);
+			float evaluation = AlfaBeta(&boardCopy, maxDepth - 1, alpha, beta, false);
 			if (evaluation >= maxEva)
 			{
 				maxEva = evaluation;
@@ -65,7 +65,7 @@ void AlfaBetaAI_fs::shootArrow()
 
 
 //Checking all possible move are arrow shoot combinations (except those who are cut by albe-beta pruning)
-inline float AlfaBetaAI_fs::AlfaBeta(Board* searchBoard, int depth, float* alpha, float* beta, bool maximizingPlayer)
+inline float AlfaBetaAI_fs::AlfaBeta(Board* searchBoard, int depth, float alpha, float beta, bool maximizingPlayer)
 {
 	// moved into each player's section since my evaluation needs to know who's moving next
 	//if (depth == 0){ return Evaluate(searchBoard) }
@@ -85,21 +85,21 @@ inline float AlfaBetaAI_fs::AlfaBeta(Board* searchBoard, int depth, float* alpha
 
 			for (auto& arrow : possibleArrows)
 			{
-					searchBoard->placeArrow(arrow.to);
+				searchBoard->placeArrow(arrow.to);
 
-					float evaluation = AlfaBeta(searchBoard, depth - 1, alpha, beta, false);
-					maxEva = maxEva >= evaluation ? maxEva : evaluation;	  //gives Maximum of the values  
+				float evaluation = AlfaBeta(searchBoard, depth - 1, alpha, beta, false);
+				maxEva = std::max(maxEva, evaluation);	  //gives Maximum of the values  
 
-					searchBoard->undoArrow(arrow.to);					   //undo arrow before trying another position
+				searchBoard->undoArrow(arrow.to);					   //undo arrow before trying another position
 					
-					// alfa-beta pruning
-					*alpha = *alpha >= maxEva ? *alpha : maxEva;
-					if (*alpha >= *beta)
-						break;
+				// alfa-beta pruning
+				alpha = std::max(alpha, maxEva);
+				if (alpha >= beta)
+					break;
 			}
 			searchBoard->moveAmazon(move.to, move.from);	                //undo move before trying another position
 
-			if (*alpha >= *beta)
+			if (alpha >= beta)
 				break;
 		}
 		return maxEva;												   //Returning arrow evaluation because it is board state evaluation after whole move
@@ -122,17 +122,17 @@ inline float AlfaBetaAI_fs::AlfaBeta(Board* searchBoard, int depth, float* alpha
 			{
 				searchBoard->placeArrow(arrow.to);
 
-				float evaluation = AlfaBeta(searchBoard, depth - 1, alpha, beta, false);
-				minEva = minEva <= evaluation ? minEva : evaluation;
+				float evaluation = AlfaBeta(searchBoard, depth - 1, alpha, beta, true);
+				minEva = std::min(minEva, evaluation);
 				searchBoard->undoArrow(arrow.to);					   //undo arrow before trying another position
 
 				// alfa-beta pruning
-				*alpha = *alpha >= minEva ? *alpha : minEva;
-				if (*alpha >= *beta)
+				beta = std::min(beta, minEva);
+				if (alpha >= beta)
 					break;
 			}
 			searchBoard->moveAmazon(move.to, move.from);	                //undo move before trying another position
-			if (*alpha >= *beta)
+			if (alpha >= beta)
 				break;
 		}
 		return minEva;

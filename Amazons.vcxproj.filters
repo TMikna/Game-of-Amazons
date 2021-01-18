@@ -45,6 +45,9 @@
     <ClCompile Include="AlfaBetaAI_ss.cpp">
       <Filter>Source Files\AIs</Filter>
     </ClCompile>
+    <ClCompile Include="AlfaBetaAI_sssi.cpp">
+      <Filter>Source Files\AIs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files\AIs</Filter>
     </ClInclude>
     <ClInclude Include="AlfaBetaAI_ss.h">
+      <Filter>Header Files\AIs</Filter>
+    </ClInclude>
+    <ClInclude Include="AlfaBetaAI_sssi.h">
       <Filter>Header Files\AIs</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,4 +1,96 @@
-﻿  AlfaBetaAI_ss.cpp
+﻿  AlfaBetaAI_fs.cpp
+  AlfaBetaAI_ss.cpp
+  AlfaBetaAI_sssi.cpp
+  Board.cpp
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\Board.cpp(39,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\Board.cpp(42,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\Board.cpp(177,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\Board.cpp(180,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\Board.cpp(400,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\Board.cpp(406,20): warning C4018: '<': signed/unsigned mismatch
   Main.cpp
+  Person.cpp
+  Player.cpp
+  RandomAI.cpp
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\RandomAI.cpp(35,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  UI.cpp
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(60,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(60,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(90,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(90,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(133,68): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(133,56): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(138,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(139,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(143,69): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              T=int
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(143,40): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              T=int
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(159,60): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(159,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(179,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(179,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(187,83): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(187,54): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(220,76): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(220,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating Code...
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(147): warning C4715: 'UI::pickAmazon': not all control paths return a value
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(216): warning C4715: 'UI::chooseArrowPlace': not all control paths return a value
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\UI.cpp(175): warning C4715: 'UI::dropAmazon': not all control paths return a value
+C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\AlfaBetaAI_sssi.cpp(147): warning C4715: 'AlfaBetaAI_sssi::AlfaBeta': not all control paths return a value
   Amazons.vcxproj -> C:\Users\tomas\MyPersonalBytes\VU\VII\Projektinis\Game of the amazons\Amazons\Game-of-Amazons\Debug\Amazons.exe

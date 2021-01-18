@@ -28,7 +28,7 @@ class AlfaBetaAI_fs :
 		AmazonMove move; //holds oldPos and newPos
 		// int** amazons; //amazons, controlled by AI;
 
-		inline float AlfaBeta(Board* searchBoard, int depth, float* alpha, float* beta, bool maximizingPlayer);
+		inline float AlfaBeta(Board* searchBoard, int depth, float alpha, float beta, bool maximizingPlayer);
 		inline float Evaluate(Board* board, int nextMovingTeamColor);
 
 };

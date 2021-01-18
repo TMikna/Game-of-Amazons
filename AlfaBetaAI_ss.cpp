@@ -17,7 +17,7 @@ void AlfaBetaAI_ss::moveAmazon()
 	for (auto &move : possibleMoves) // access by reference to avoid copying
 	{
 		boardCopy.moveAmazon(move.from, move.to);
-		float evaluation = AlfaBeta(&boardCopy, maxDepth -1, &alpha, &beta, false);
+		float evaluation = AlfaBeta(&boardCopy, maxDepth -1, alpha, beta, false);
 		if (evaluation >= maxEva)
 		{
 			maxEva = evaluation;
@@ -26,7 +26,7 @@ void AlfaBetaAI_ss::moveAmazon()
 		boardCopy.moveAmazon(move.to, move.from);    //undo move before exiting
 		
 		// alfa-beta pruning
-		alpha = alpha >= maxEva ? alpha : maxEva;
+		alpha = std::max(alpha, maxEva);
 		if (alpha >= beta)
 			break;
 	}
@@ -58,7 +58,7 @@ void AlfaBetaAI_ss::shootArrow()
 	for (auto& move : possibleArrows)                                    // access by reference to avoid copying
 	{
 		boardCopy.placeArrow(move.to);
-		float evaluation = AlfaBeta(&boardCopy, maxDepth - 1, &alpha, &beta, false);
+		float evaluation = AlfaBeta(&boardCopy, maxDepth - 1, alpha, beta, false);
 		if (evaluation >= maxEvaArrow)
 		{
 			maxEvaArrow = evaluation;
@@ -67,7 +67,7 @@ void AlfaBetaAI_ss::shootArrow()
 		boardCopy.undoArrow(move.to);							   //undo move before exiting
 		
 		// alfa-beta pruning
-		alpha = alpha >= maxEvaArrow ? alpha : maxEvaArrow;
+		alpha = std::max(alpha, maxEvaArrow);
 		if (alpha >= beta)
 			break;
 	}
@@ -81,7 +81,7 @@ void AlfaBetaAI_ss::shootArrow()
 
 //Is it better to find best move and then best arrow shot for it - CURRENT
 //Or best move + arrow (find all moves and all possible arrow possitions and find the best? This sounds better and easier to implement but a lot move performance expensive
-inline float AlfaBetaAI_ss::AlfaBeta(Board *searchBoard, int depth, float * alpha, float *beta, bool maximizingPlayer)
+inline float AlfaBetaAI_ss::AlfaBeta(Board *searchBoard, int depth, float alpha, float beta, bool maximizingPlayer)
 {
 	// moved into each player's section since my evaluation needs to know who's moving next
 	//if (depth == 0){ return Evaluate(searchBoard) }
@@ -107,8 +107,8 @@ inline float AlfaBetaAI_ss::AlfaBeta(Board *searchBoard, int depth, float * alph
 			searchBoard->moveAmazon(move.to, move.from);	                //undo move before exiting
 
 			// alfa-beta pruning
-			*alpha = *alpha >= maxEva ? *alpha : maxEva;
-			if (*alpha >= *beta)
+			alpha = std::max(alpha, maxEva);
+			if (alpha >= beta)
 				break;
 		}
 
@@ -119,12 +119,12 @@ inline float AlfaBetaAI_ss::AlfaBeta(Board *searchBoard, int depth, float * alph
 		{
 			searchBoard->placeArrow(move.to);
 			float evaluation = AlfaBeta(searchBoard, depth - 1, alpha, beta, false);
-			maxEvaArrow = maxEvaArrow >= evaluation ? maxEvaArrow : evaluation;	  //gives Maximum of the values  
+			maxEvaArrow = std::max(maxEvaArrow, evaluation);	  //gives Maximum of the values  
 			searchBoard->undoArrow(move.to);							   //undo move before exitingž
 
 			// alfa-beta pruning
-			*alpha = *alpha >= maxEvaArrow ? *alpha : maxEvaArrow;
-			if (*alpha >= *beta)
+			alpha = std::max(alpha, maxEvaArrow);
+			if (alpha >= beta)
 				break;
 		}
 		searchBoard->moveAmazon(bestMove.to, bestMove.from);					  //undo the move
@@ -152,8 +152,8 @@ inline float AlfaBetaAI_ss::AlfaBeta(Board *searchBoard, int depth, float * alph
 			searchBoard->moveAmazon(move.to, move.from);	                //undo move before exiting	
 						
 			// alfa-beta pruning
-			*beta = *beta >= minEva ? *beta : minEva;
-			if (*alpha >= *beta)
+			beta = std::min(beta, minEva);
+			if (alpha >= beta)
 				break;
 		}																    
 																		    
@@ -169,8 +169,8 @@ inline float AlfaBetaAI_ss::AlfaBeta(Board *searchBoard, int depth, float * alph
 			searchBoard->undoArrow(move.to);	                            //undo arrow before exiting	
 			
 			// alfa-beta pruning
-			*beta = *beta >= minEvaArrow ? *beta : minEvaArrow;
-			if (*alpha >= *beta)
+			beta = std::min(beta, minEvaArrow);
+			if (alpha >= beta)
 				break;
 		}																 
 		searchBoard->moveAmazon(worstMove.to, worstMove.from);			    //Undo the best move before leaving

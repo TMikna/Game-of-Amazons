@@ -10,6 +10,8 @@
 
 #include <chrono>  // for high_resolution_clock
 #include <algorithm>
+#include "AlfaBetaAI_sssi.h"
+#include <thread>
 
 
 
@@ -40,20 +42,22 @@ int main()
 	Person personb (&board, &ui, BLACKS);
 	RandomAI rAIw(&board, &ui, WHITES);
 	RandomAI rAIb(&board, &ui, BLACKS);
-	AlfaBetaAI_ss abAIw(&board, &ui, WHITES);
-	AlfaBetaAI_ss abAIb(&board, &ui, BLACKS);
+	AlfaBetaAI_ss abAIsw(&board, &ui, WHITES);
+	AlfaBetaAI_ss abAIsb(&board, &ui, BLACKS);
+	AlfaBetaAI_sssi abAIssw(&board, &ui, WHITES);
+	AlfaBetaAI_sssi abAIssb(&board, &ui, BLACKS);
 	AlfaBetaAI_fs abAIfw(&board, &ui, WHITES);
 	AlfaBetaAI_fs abAIfb(&board, &ui, BLACKS);
 	//Ai ai2(&board, &ui, WHITES);
 
 	ui.loadBoard(board.getAmazons(), "images/Board10x10.png", "images/queens2.png", "images/arrow.png", "images/winMsg.png");
-	board.findAllMoves(BLACKS);
+	//board.findAllMoves(BLACKS);
 
 	//auto moves = board.findAllMoves(WHITES);
 	//ai.moveAmazon();
 
-	auto pW = personw;    // player 1 (Whites)
-	auto pB = abAIb;	// player 2 (Blacks)
+	auto pW = abAIssw;    // player 1 (Whites)
+	auto pB = abAIsb;	  // player 2 (Blacks)
 
 	auto start = std::chrono::high_resolution_clock::now();
 
@@ -70,6 +74,9 @@ int main()
 			break;
 		}
 
+		std::chrono::milliseconds timespan(2000); // or whatever
+		std::this_thread::sleep_for(timespan);
+
 		if (pB.hasPossibleMove())
 		{
 			pB.makeMove();
@@ -80,7 +87,7 @@ int main()
 			std::cout << "pW wins" << std::endl;
 			break;
 		}
-
+		std::this_thread::sleep_for(timespan);
 	}
 
 	auto finish = std::chrono::high_resolution_clock::now();
