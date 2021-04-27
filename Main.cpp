@@ -12,6 +12,7 @@
 #include <algorithm>
 #include "AlfaBetaAI_sssi.h"
 #include <thread>
+#include "AlfaBetaAI_sssiie.h"
 
 
 
@@ -46,6 +47,8 @@ int main()
 	AlfaBetaAI_ss abAIsb(&board, &ui, BLACKS);
 	AlfaBetaAI_sssi abAIssw(&board, &ui, WHITES);
 	AlfaBetaAI_sssi abAIssb(&board, &ui, BLACKS);
+	AlfaBetaAI_sssiie abAIssiw(&board, &ui, WHITES);
+	AlfaBetaAI_sssiie abAIssib(&board, &ui, BLACKS);
 	AlfaBetaAI_fs abAIfw(&board, &ui, WHITES);
 	AlfaBetaAI_fs abAIfb(&board, &ui, BLACKS);
 	//Ai ai2(&board, &ui, WHITES);
@@ -56,8 +59,13 @@ int main()
 	//auto moves = board.findAllMoves(WHITES);
 	//ai.moveAmazon();
 
-	auto pW = abAIssw;    // player 1 (Whites)
-	auto pB = abAIsb;	  // player 2 (Blacks)
+	auto pW = abAIssiw; // player 1 (Whites)
+	auto pB = personb; 	  // player 2 (Blacks)
+
+	//auto pW = abAIssiw; // player 1 (Whites)
+	//auto pB = abAIssb;	  // player 2 (Blacks)
+
+	std::cout << board.allPossibleDirections(WHITES) << '\n';
 
 	auto start = std::chrono::high_resolution_clock::now();
 
@@ -74,8 +82,8 @@ int main()
 			break;
 		}
 
-		std::chrono::milliseconds timespan(2000); // or whatever
-		std::this_thread::sleep_for(timespan);
+	//	std::chrono::milliseconds timespan(2000); // or whatever
+	//	std::this_thread::sleep_for(timespan);
 
 		if (pB.hasPossibleMove())
 		{
@@ -87,7 +95,7 @@ int main()
 			std::cout << "pW wins" << std::endl;
 			break;
 		}
-		std::this_thread::sleep_for(timespan);
+	//	std::this_thread::sleep_for(timespan);
 	}
 
 	auto finish = std::chrono::high_resolution_clock::now();

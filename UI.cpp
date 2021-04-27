@@ -12,7 +12,7 @@
 
 UI::UI()
 {
-    window.create(VideoMode(cUI::BOARD_WIDTH, cUI::BOARD_HEIGHT), "TheChess!");
+    window.create(VideoMode(cUI::BOARD_WIDTH, cUI::BOARD_HEIGHT), "The Game of the Amazons");
 }
 
 void UI::loadBoard(int** amazonsPos, std::string boardPath, std::string queensPath, std::string arrowPath, std::string winMsgPath)

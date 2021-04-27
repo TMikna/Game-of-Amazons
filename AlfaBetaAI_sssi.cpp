@@ -200,7 +200,7 @@ inline float AlfaBetaAI_sssi::AlfaBetaArrow(Board* searchBoard, int depth, float
 // Editing Evaluation formula no possible move case in AlfaBetaAI_ss should be reviewed
 inline float AlfaBetaAI_sssi::Evaluate(Board* board, int nextMovingTeamColor)
 {
-	float bias = 0.5;
+	float bias = 0.25;
 	if (nextMovingTeamColor == teamColor)
 		bias *= -1;
 	int movCount = board->countAllMoves(teamColor);

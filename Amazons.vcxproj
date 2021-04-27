@@ -154,6 +154,7 @@
     <ClCompile Include="AlfaBetaAI_ss.cpp" />
     <ClCompile Include="AlfaBetaAI_fs.cpp" />
     <ClCompile Include="AlfaBetaAI_sssi.cpp" />
+    <ClCompile Include="AlfaBetaAI_sssiie.cpp" />
     <ClCompile Include="RandomAI.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="AlfaBetaAI_ss.h" />
     <ClInclude Include="AlfaBetaAI_fs.h" />
     <ClInclude Include="AlfaBetaAI_sssi.h" />
+    <ClInclude Include="AlfaBetaAI_sssiie.h" />
     <ClInclude Include="AmazonMove.h" />
     <ClInclude Include="RandomAI.h" />
     <ClInclude Include="Board.h" />

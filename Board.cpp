@@ -391,6 +391,39 @@ bool Board::hasMove(Vector2i amazon)
 	return false;
 }
 
+int Board::allPossibleDirections(int teamColor) 
+{
+	int directionsCount = 0;
+
+	if (teamColor == WHITES)
+		for (int i = 0; i < wAmazonsPositions.size(); i++)
+			directionsCount += possibleDirections(wAmazonsPositions[i]);
+	else if (teamColor == BLACKS)
+		for (int i = 0; i < bAmazonsPositions.size(); i++)
+			directionsCount += possibleDirections(bAmazonsPositions[i]);
+
+	return directionsCount;
+}
+
+int Board::possibleDirections(Vector2i amazon)
+{
+	int directions = 0;
+	for (int i = -1; i <= 1; i++)
+		for (int j = -1; j <= 1; j++)
+		{
+			// if (i == j == 0)      //TODO: investigate seems compare i and j, then the result (boolean) compares with 0. So if j != i -> false == false -> true
+			if (i == 0 && j == 0) //the spot amazon is standing. Not necessary since it is always not true
+				continue;
+			int x = amazon.x + i;
+			int y = amazon.y + j;
+			if ((x < 0 || x >= c::BOARD_SIZE) || (y < 0 || y >= c::BOARD_SIZE))
+				continue;		  // space is not on the board
+			if (board[x][y] == 0) // is space empty
+				directions ++;
+		}
+	return directions;
+}
+
 void Board::moveAmazon(Vector2i oldPos, Vector2i newPos)
 {
 	//TODO error prevention, maybe exception? if newPos is out of bounds

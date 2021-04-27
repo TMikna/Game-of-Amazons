@@ -22,6 +22,10 @@ public:
     int getPlayer(Vector2i pos) { return board[pos.x][pos.y]; };
     int** getAmazons();
     int** getAmazons(int teamColor);
+    int possibleDirections(Vector2i amazon);
+    int allPossibleDirections(int teamColor);
+
+
     //All moves finding is a bit messy, might be nicer if I saves queens in separate arrays too, but for now decided to leave all logic on board array
     //Probably it's still possible to implement it nicer
 

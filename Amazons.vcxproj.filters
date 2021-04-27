@@ -48,6 +48,9 @@
     <ClCompile Include="AlfaBetaAI_sssi.cpp">
       <Filter>Source Files\AIs</Filter>
     </ClCompile>
+    <ClCompile Include="AlfaBetaAI_sssiie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files\AIs</Filter>
     </ClInclude>
     <ClInclude Include="AlfaBetaAI_sssi.h">
+      <Filter>Header Files\AIs</Filter>
+    </ClInclude>
+    <ClInclude Include="AlfaBetaAI_sssiie.h">
       <Filter>Header Files\AIs</Filter>
     </ClInclude>
   </ItemGroup>
