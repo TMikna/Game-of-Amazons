@@ -24,7 +24,7 @@ void Board::printBoard()
 //		for (int j = 0; j < c::BOARD_SIZE; j++)
 //			if (board[i][j] == teamColor)
 //			{
-//				findAllMovesFrom(Vector2i(i, j), &moves);
+//				findAllMovesFrom(Position(i, j), &moves);
 //			}
 //
 //	return moves;
@@ -47,13 +47,13 @@ std::vector<AmazonMove> Board::findAllMoves(int teamColor)
 	//	for (int j = 0; j < c::BOARD_SIZE; j++)
 	//		if (board[i][j] == teamColor)
 	//		{
-	//			findAllMovesFrom(Vector2i(i, j), &moves);
+	//			findAllMovesFrom(Position(i, j), &moves);
 	//		}
 	return moves;
 }
 
 // find all possible moves from a position
-inline void Board::findAllMovesFrom(Vector2i pos, std::vector<AmazonMove>* moves)
+inline void Board::findAllMovesFrom(Position pos, std::vector<AmazonMove>* moves)
 {
 	int k;
 	int l;
@@ -62,53 +62,53 @@ inline void Board::findAllMovesFrom(Vector2i pos, std::vector<AmazonMove>* moves
 	k = pos.x;
 	l = pos.y;
 	while (++k < c::BOARD_SIZE && !board[k][l])
-		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves->push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go up;
 	k = pos.x;
 	l = pos.y;
 	while (k-- > 0 && !board[k][l]) //while not 0 (aka not false)
-		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves->push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go right;
 	k = pos.x;
 	l = pos.y;
 	while (++l < c::BOARD_SIZE && !board[k][l])
-		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves->push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go left;
 	k = pos.x;
 	l = pos.y;
 	while (l-- > 0 && !board[k][l])
-		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves->push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go down rigth;
 	k = pos.x;
 	l = pos.y;
 	while (++k < c::BOARD_SIZE && ++l < c::BOARD_SIZE && !board[k][l])
-		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves->push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go down left;
 	k = pos.x;
 	l = pos.y;
 	while (++k < c::BOARD_SIZE && l-- > 0 && !board[k][l])
-		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves->push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go up rigth;
 	k = pos.x;
 	l = pos.y;
 	while (k-- > 0 && ++l < c::BOARD_SIZE && !board[k][l])
-		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves->push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go up left;
 	k = pos.x;
 	l = pos.y;
 	while (k-- > 0 && l-- > 0 && !board[k][l])
-		moves->push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves->push_back(AmazonMove{ pos, Position(k, l) });
 }
 
 // find all possible moves from a position
-std::vector<AmazonMove> Board::findAllMovesFrom(Vector2i pos)
+std::vector<AmazonMove> Board::findAllMovesFrom(Position pos)
 {
 
 	std::vector<AmazonMove> moves;
@@ -121,49 +121,49 @@ std::vector<AmazonMove> Board::findAllMovesFrom(Vector2i pos)
 	k = pos.x;
 	l = pos.y;
 	while (++k < c::BOARD_SIZE && !board[k][l])
-		moves.push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves.push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go up;
 	k = pos.x;
 	l = pos.y;
 	while (k-- > 0 && !board[k][l]) //while not 0 (aka not false)
-		moves.push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves.push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go right;
 	k = pos.x;
 	l = pos.y;
 	while (++l < c::BOARD_SIZE && !board[k][l])
-		moves.push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves.push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go left;
 	k = pos.x;
 	l = pos.y;
 	while (l-- > 0 && !board[k][l])
-		moves.push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves.push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go down rigth;
 	k = pos.x;
 	l = pos.y;
 	while (++k < c::BOARD_SIZE && ++l < c::BOARD_SIZE && !board[k][l])
-		moves.push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves.push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go down left;
 	k = pos.x;
 	l = pos.y;
 	while (++k < c::BOARD_SIZE && l-- > 0 && !board[k][l])
-		moves.push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves.push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go up rigth;
 	k = pos.x;
 	l = pos.y;
 	while (k-- > 0 && ++l < c::BOARD_SIZE && !board[k][l])
-		moves.push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves.push_back(AmazonMove{ pos, Position(k, l) });
 
 	// go up left;
 	k = pos.x;
 	l = pos.y;
 	while (k-- > 0 && l-- > 0 && !board[k][l])
-		moves.push_back(AmazonMove{ pos, Vector2i(k, l) });
+		moves.push_back(AmazonMove{ pos, Position(k, l) });
 
 	return moves;
 }
@@ -184,14 +184,14 @@ int Board::countAllMoves(int teamColor)
 		for (int j = 0; j < c::BOARD_SIZE; j++)
 			if (board[i][j] == teamColor)
 			{
-				countAllMovesFrom(Vector2i(i, j), &movesCount);
+				countAllMovesFrom(Position(i, j), &movesCount);
 			}*/
 
 	return movesCount;
 }
 
 // find all possible moves from a position
-int Board::countAllMovesFrom(Vector2i pos, int *movesCount)
+int Board::countAllMovesFrom(Position pos, int *movesCount)
 {
 	if (!movesCount)
 		(*movesCount) = 0;
@@ -274,9 +274,9 @@ void Board::setAmazonsArrays()
 	for (int i = 0; i < c::BOARD_SIZE; i++)
 		for (int j = 0; j < c::BOARD_SIZE; j++)
 			if (board[i][j] == WHITES)
-				wAmazonsPositions.push_back(Vector2i(i, j));
+				wAmazonsPositions.push_back(Position(i, j));
 			else if (board[i][j] == BLACKS)
-				bAmazonsPositions.push_back(Vector2i(i, j));
+				bAmazonsPositions.push_back(Position(i, j));
 }
 
 
@@ -295,7 +295,7 @@ int** Board::getAmazons(int teamColor)
 	return amazons;
 }
 
-bool Board::isMoveAllowed(Vector2i oldPos, Vector2i newPos)
+bool Board::isMoveAllowed(Position oldPos, Position newPos)
 {
 	if (!isQueenTrajectory(oldPos, newPos))
 		return false;
@@ -332,7 +332,7 @@ bool Board::isMoveAllowed(Vector2i oldPos, Vector2i newPos)
 	return true;
 }		  
 
-inline bool Board::isQueenTrajectory(Vector2i oldPos, Vector2i newPos)
+inline bool Board::isQueenTrajectory(Position oldPos, Position newPos)
 {
 	int dx = abs(newPos.x - oldPos.x);
 	int dy = abs(newPos.y - oldPos.y);
@@ -351,7 +351,7 @@ inline bool Board::isQueenTrajectory(Vector2i oldPos, Vector2i newPos)
 /// </summary>
 /// <param name="pos"></param>
 /// <returns></returns>
-inline bool Board::isOnBoard(Vector2i pos)
+inline bool Board::isOnBoard(Position pos)
 {
 	if (pos.x < 0 || pos.x >= c::BOARD_SIZE)
 		return false; // pos is either above or below board
@@ -366,14 +366,14 @@ bool Board::hasMove(int teamColor)
 		for (int j = 0; j < c::BOARD_SIZE; j++)
 			if (board[i][j] == teamColor)
 			{
-				if (hasMove(Vector2i(i, j)))
+				if (hasMove(Position(i, j)))
 					return true;
 			}
 	return false;
 }
 
 // returns true if given amazon has at least one possible move
-bool Board::hasMove(Vector2i amazon)
+bool Board::hasMove(Position amazon)
 {
 	for (int i = -1; i <= 1; i++)
 		for (int j = -1; j <= 1; j++)
@@ -405,7 +405,7 @@ int Board::allPossibleDirections(int teamColor)
 	return directionsCount;
 }
 
-int Board::possibleDirections(Vector2i amazon)
+int Board::possibleDirections(Position amazon)
 {
 	int directions = 0;
 	for (int i = -1; i <= 1; i++)
@@ -424,7 +424,7 @@ int Board::possibleDirections(Vector2i amazon)
 	return directions;
 }
 
-void Board::moveAmazon(Vector2i oldPos, Vector2i newPos)
+void Board::moveAmazon(Position oldPos, Position newPos)
 {
 	//TODO error prevention, maybe exception? if newPos is out of bounds
 	board[newPos.x][newPos.y] = board[oldPos.x][oldPos.y]; // move amazon

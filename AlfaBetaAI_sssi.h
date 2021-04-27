@@ -20,7 +20,7 @@ public:
 private:
 	UI* ui;
 	Board* board;
-	Vector2i oldPos, newPos, arrowPos;
+	Position oldPos, newPos, arrowPos;
 	AmazonMove move; //holds oldPos and newPos
 	// int** amazons; //amazons, controlled by AI;
 

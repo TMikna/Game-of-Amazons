@@ -49,7 +49,7 @@
       <Filter>Source Files\AIs</Filter>
     </ClCompile>
     <ClCompile Include="AlfaBetaAI_sssiie.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\AIs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

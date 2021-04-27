@@ -19,6 +19,6 @@ public:
 private:
 	UI *ui;
 	Board *board;
-	Vector2i oldPos, newPos, arrowPos;
+	Position oldPos, newPos, arrowPos;
 };
 

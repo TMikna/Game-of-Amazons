@@ -115,7 +115,7 @@ void UI::closeWindow()
 // moving amazons
 
 
-Vector2i UI::pickAmazon()
+Position UI::pickAmazon()
 {
 	Event e;
 	while(window.isOpen())  // at least better than while(true)
@@ -137,16 +137,16 @@ Vector2i UI::pickAmazon()
 						n = i;   //set current amazon
 						int dx = mousePos.x - winPos.x;
 						int dy = mousePos.y - winPos.y;
-						delta = Vector2i(dx, dy);
+						delta = Position(dx, dy);
 
 						// x and y changes places because windiw is as a coordinate plane and Board holds positions in a matrix, hence y becoles row and x - colum
-						Vector2i pos = Vector2i(winPos.y / cUI::SQUARE_SIZE, winPos.x / cUI::SQUARE_SIZE);
+						Position pos = Position(winPos.y / cUI::SQUARE_SIZE, winPos.x / cUI::SQUARE_SIZE);
 						return pos;
 					}
 	 }
 }
 
-Vector2i UI::dropAmazon() 
+Position UI::dropAmazon()
 {
 	Event e;
 	while (window.isOpen())  // at least better than while(true)
@@ -168,19 +168,19 @@ Vector2i UI::dropAmazon()
 		if (e.type == Event::MouseButtonReleased)
 			if (e.key.code == Mouse::Left)
 			{
-				Vector2i pos = Vector2i(mousePos.y / cUI::SQUARE_SIZE, mousePos.x / cUI::SQUARE_SIZE);
+				Position pos = Position(mousePos.y / cUI::SQUARE_SIZE, mousePos.x / cUI::SQUARE_SIZE);
 				return pos;
 			}
 	}
 }
 
-void UI::setAmazonPosition(Vector2i pos)
+void UI::setAmazonPosition(Position pos)
 {
 	sQueens[n].setPosition(pos.y * cUI::SQUARE_SIZE, pos.x * cUI::SQUARE_SIZE);
 	display();
 }
 
-void UI::changeAmazonPosition(Vector2i oldPos, Vector2i newPos)
+void UI::changeAmazonPosition(Position oldPos, Position newPos)
 {
 	// find position 
 	for (int i = 0; i < c::AMAZONS; i++)
@@ -197,7 +197,7 @@ void UI::changeAmazonPosition(Vector2i oldPos, Vector2i newPos)
 //TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
 // placing arrows
 
-Vector2i UI::chooseArrowPlace()
+Position UI::chooseArrowPlace()
 {
 	Event e;
 	while (window.isOpen())  // at least better than while(true)
@@ -211,11 +211,11 @@ Vector2i UI::chooseArrowPlace()
 
 		if (e.type == Event::MouseButtonPressed)
 			if (e.key.code == Mouse::Left)
-				return Vector2i(mousePos.y / cUI::SQUARE_SIZE, mousePos.x / cUI::SQUARE_SIZE);
+				return Position(mousePos.y / cUI::SQUARE_SIZE, mousePos.x / cUI::SQUARE_SIZE);
 	}
 }
 
-void UI::placeArrow(Vector2i arrowPos)
+void UI::placeArrow(Position arrowPos)
 {
 	sArrows[arrowCount].setPosition(arrowPos.y * cUI::SQUARE_SIZE, arrowPos.x * cUI::SQUARE_SIZE);
 	arrowCount++;
